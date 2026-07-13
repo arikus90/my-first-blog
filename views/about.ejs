@@ -1,0 +1,90 @@
+<%- include("partials/header") %>
+
+<div class="main-content-wrapper">
+    
+    <!-- Профиль (использует класс карточки блога .grid-item и наш внутренний .about-profile) -->
+    <div class="grid-item about-profile">
+        <img src="/images/foto 2.jpg" alt="Hanim Alizada" />
+        <div>
+            <h1>Hanim Alizada</h1>
+            <p style="font-size: 18px; line-height: 1.6; color: #ccc;">
+                Former translator turned graphic designer who accidentally fell in love with web development during a college semester. Currently building, learning, and breaking code until it works perfectly. This site is my playground for turning creative design ideas into functional websites.
+            </p>
+        </div>
+    </div>
+
+    <!-- Трёхколоночная сетка (использует класс .grid-container из твоего main.css) -->
+    <div class="grid-container">
+        
+        <!-- Колонка 1: Опыт работы -->
+        <div class="grid-item">
+            <h2 class="column-title">Work Experience</h2>
+            
+            <div class="sub-block">
+                <h3>Translator</h3>
+                <span>09/2017 - 09/2021</span>
+                <p>“Global Security Systems” LLC - Baku, Azerbaijan. Translating documents and mails for company; application using languages.</p>
+            </div>
+
+            <div class="sub-block">
+                <h3>Translator</h3>
+                <span>08/2015 - 08/2017</span>
+                <p>"R-BİZNES SERVİS" LLC - Baku, Azerbaijan. Translating documents with notary approval.</p>
+            </div>
+        </div>
+
+        <!-- Колонка 2: Образование -->
+        <div class="grid-item">
+            <h2 class="column-title">Education</h2>
+            
+            <div class="sub-block">
+                <h3>Graphic Design</h3>
+                <span>Nishantashi University (Vocational School)</span>
+                <span class="edu-date">10/2021 - 06/2024 | Istanbul, Turkey</span>
+            </div>
+
+            <div class="sub-block">
+                <h3>Master: Translator</h3>
+                <span>Baku Slavic University (Ukrainian-Russian)</span>
+                <span class="edu-date">09/2012 - 06/2014 | Baku, Azerbaijan</span>
+            </div>
+
+            <div class="sub-block">
+                <h3>Bachelor: Linguistics-translation</h3>
+                <span>Baku Slavic University (Ukrainian-English)</span>
+                <span class="edu-date">09/2008 - 06/2012 | Baku, Azerbaijan</span>
+            </div>
+        </div>
+
+        <!-- Колонка 3: Навыки, Сертификаты и Хобби -->
+        <div class="grid-item">
+            <h2 class="column-title">Skills & Certificates</h2>
+            
+            <ul style="padding-left: 20px; color: #b9bbbe; font-size: 14px; margin-bottom: 20px; line-height: 1.6;">
+                <li>Technical translation</li>
+                <li>Adobe Suite</li>
+                <li>Microsoft Office Suite</li>
+                <li>Ability to effectively plan</li>
+                <li>Teamwork skills</li>
+            </ul>
+
+            <h2 class="column-title">Certificates</h2>
+            <ul style="padding-left: 20px; color: #b9bbbe; font-size: 14px; margin-bottom: 20px; line-height: 1.6;">
+                <li>HTML5 Programming From Scratch (Udemy)</li>
+                <li>GOETHE-ZERTIFIKAT</li>
+                <li>Practical course in Ukr. (Poltava, UA)</li>
+            </ul>
+
+            <h2 class="column-title">Hobbies</h2>
+            <div class="hobby-tags">
+                <span class="hobby-tag">Computer programs</span>
+                <span class="hobby-tag">Drawing</span>
+                <span class="hobby-tag">Reading</span>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<%- include("partials/footer") %>
+

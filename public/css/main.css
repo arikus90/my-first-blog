@@ -1,0 +1,490 @@
+@font-face {
+    font-family: 'Old London';
+    src: url('/fonts/OldLondon.ttf') format('truetype');
+}
+
+.bday-banner {
+    display: block !important;
+}
+
+#bottomTitle {
+    padding: 10px;
+    font-size: xx-large;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: #F0F6FC;
+    text-align: center;
+    background-color: #0D1117;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    padding: 10px 20px;
+    font-family: Arial, sans-serif;
+}
+
+.nav-logo {
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.nav-links a:hover {
+    color: yellow;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 2fr 2fr 2fr;
+    gap: 10px;
+    background-color: rgb(231, 204, 210);
+}
+
+.grid-item {
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #161B22;
+}
+
+.post-img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+    box-sizing: border-box;
+    transition: all 0.3s;
+}
+
+.stylizedH2 {
+    color: aliceblue;
+    text-align: center;
+}
+
+.commentInputStyle {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 5px;
+    border: none;
+    font-family: inherit;
+    margin-top: 12px;
+    margin-bottom: 5px;
+}
+
+.commentTextareaStyle {
+    padding: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: 100%;
+    height: 5em;
+    box-sizing: border-box;
+}
+
+.submitBtnStyle {
+    width: auto;
+    padding: 5px 10px;
+    background-color: white;
+    color: black;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    display: block;
+    margin-left: auto;
+    margin-top: 10px;
+}
+
+.comments-section {
+    background-color: #666;
+    width: 100%;
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.comments-list {
+    background-color: aliceblue;
+    width: 100%;
+    max-height: 120px;
+    min-height: 120px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    gap: 1em;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+.comment-item {
+    margin: 0;
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #000000 !important; /* Делает базовый текст и двоеточие чёрными */
+    padding: 5px 6px;
+    border-radius: 4px;
+    font-size: 14px;
+    line-height: 1.2;
+    
+    word-break: break-all;     
+    overflow-wrap: break-word; 
+    white-space: normal;       
+    
+    width: 100%;
+    max-width: 100%;           
+    box-sizing: border-box;
+    height: max-content;
+    flex-shrink: 1;            
+}
+
+/* Делает текст самого комментария внутри параграфа чёрным */
+.comment-item p {
+    color: #000000 !important; 
+    margin: 0;
+    padding: 0;
+    word-break: break-all;     
+    overflow-wrap: break-word;
+    max-width: 100%;
+}
+.comment-text {
+    color: #000000 !important;
+}
+.comments-list:empty::before {
+    content: "No comments yet.";
+    color: #666;
+    font-size: 14px;
+    font-style: italic;
+    width: 100%;
+    text-align: center;
+    padding-top: 45px;
+}
+
+.show-all-btn {
+    background: none;
+    border: none;
+    color: aliceblue;
+    text-decoration: underline;
+    cursor: pointer;
+    font-size: 14px;
+    padding: 5px 0;
+    width: max-content;
+    align-self: flex-start;
+}
+
+.grids-frame-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.frame-btn {
+    width: 80px;
+    height: 80px;
+    cursor: pointer;
+    background-color: rgb(146, 143, 143);
+    background-size: cover;
+    padding: 3;
+    border: none;
+    display: inline-block;
+    text-align: center;
+}
+
+.ramka1 { background-image: url('/vectors/ramka 1.svg'); }
+.ramka2 { background-image: url('/vectors/ramka 2.svg'); }
+.ramka3 { background-image: url('/vectors/ramka 3.svg'); }
+
+.grid-framne-item {
+    background-color: transparent;
+}
+
+.image-container {
+    position: relative;
+    display: inline-block;
+    width: 500px;
+}
+
+.overlay-img {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 100px;
+}
+
+.photo-wrapper {
+    position: relative;
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+}
+
+.frame-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    pointer-events: none;
+    transition: background-image 0.3s ease;
+    transform: scaleX(1);
+}
+
+.ramka1-big { background-image: url('/vectors/ramka 1.svg'); }
+.ramka2-big { background-image: url('/vectors/ramka 2.svg'); }
+.ramka3-big { background-image: url('/vectors/ramka 3.svg'); }
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.modal-content {
+    background-color: #ffffff;
+    margin: 10% auto;
+    padding: 25px;
+    width: 450px;
+    max-height: 70vh;
+    overflow-y: auto;
+    border-radius: 8px;
+    position: relative;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.modal-content h2 {
+    margin-top: 0;
+    color: #333333;
+    font-family: Arial, sans-serif;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+}
+
+.close-modal {
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    font-size: 28px;
+    font-weight: bold;
+    color: #999;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.close-modal:hover {
+    color: #000000;
+}
+
+.comment-author {
+    color: #58A6FF !important;
+    font-weight: bold;
+    margin-right: 4px;
+}
+
+.bday-banner {
+    background-color: #161B22;
+    border-bottom: 1px solid #30363d;
+    padding: 15px;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.bday-text {
+    color: #f0f6fc;
+    font-size: 18px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+}
+
+.celebrate-btn {
+    background-color: #ff3333;
+    color: #ffffff;
+    border: none;
+    padding: 12px 28px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.2s, box-shadow 0.2s;
+    box-shadow: 0 0 15px rgba(255, 51, 51, 0.6);
+}
+
+.celebrate-btn:hover {
+    background-color: #ff5555;
+    transform: scale(1.05);
+    box-shadow: 0 0 25px rgba(255, 51, 51, 0.9);
+}
+
+.balloon {
+    position: fixed;
+    bottom: -150px;
+    width: 100px;
+    height: 125px;
+    background: radial-gradient(circle at 30% 30%, #ff4d4d, #b30000);
+    border-radius: 50% 50% 50% 50% / 40% 40% 60% 60%;
+    z-index: 9999;
+    box-shadow: inset -10px -10px 20px rgba(0,0,0,0.4), 0 10px 20px rgba(0,0,0,0.3);
+    animation: floatUp 4s linear forwards;
+}
+
+.balloon::after {
+    content: "";
+    position: absolute;
+    bottom: -15px;
+    left: 48px;
+    width: 3px;
+    height: 15px;
+    background-color: #ff4d4d;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(0) translateX(0);
+        opacity: 1;
+    }
+    50% {
+        transform: translateY(-50vh) translateX(20px);
+    }
+    100% {
+        transform: translateY(-120vh) translateX(-20px);
+        opacity: 0;
+    }
+}
+
+/* ==========================================================================
+   ИСПРАВЛЕННЫЕ СТИЛИ СТРАНИЦЫ "ABOUT" (ВСЕ ТЕКСТЫ БЕЛЫЕ)
+   ========================================================================== */
+
+/* Аккуратный отступ между профилем и трехколоночной сеткой */
+.about-profile {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    margin-bottom: 20px; 
+}
+
+.about-profile img {
+    height: 200px;
+    width: 200px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+/* Белый заголовок имени в профиле */
+.about-profile h1 {
+    color: #ffffff !important;
+    margin-bottom: 10px;
+    font-size: 32px;
+}
+
+/* Белое описание в профиле */
+.about-profile p {
+    color: #ffffff !important;
+    font-style: italic;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+/* Золотые главные заголовки колонок */
+.column-title {
+    color: #f8ff98 !important;
+    border-bottom: 1px solid #30363d;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+    font-size: 22px;
+}
+
+/* Золотые подзаголовки (Certificates, Hobbies) */
+.grid-item .column-subtitle {
+    color: #f5ff99 !important;
+    border-bottom: 1px solid #30363d;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+    font-size: 18px;
+    margin-top: 20px;
+}
+
+.sub-block {
+    margin-bottom: 20px;
+}
+
+/* Белые заголовки внутри колонок (должности, специальности) */
+.grid-item h3 {
+    color: #ffffff !important;
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+/* Белые даты в опыте работы */
+.sub-block span {
+    color: #ffffff !important;
+    font-size: 13px;
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* Белые названия учебных заведений и описания обязанностей */
+.grid-item p {
+    color: #ffffff !important;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+/* Белые даты обучения (бывшие синие) */
+.edu-date {
+    color: #ffffff !important;
+    font-size: 13px;
+    display: block;
+}
+
+/* Белые элементы списков (навыки и сертификаты) */
+.grid-item ul {
+    padding-left: 20px;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.grid-item ul li {
+    color: #ffffff !important;
+    font-size: 14px;
+}
+
+/* Теги хобби */
+.hobby-tags {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.hobby-tag {
+    background: #30363d;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    color: #ffffff !important;
+}

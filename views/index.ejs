@@ -1,0 +1,144 @@
+<%- include("partials/header") %>
+
+<div class = "grid-container">
+
+    <!-- Фото 1 -->
+    <div class= "grid-item"><h2  class="stylizedH2" > Do you like this photo? </h2>
+        <p class="stylizedH2">How does this photo make you feel?</p>
+        <div class="photo-wrapper">
+            <img class="post-img" src="/images/another view of bosforus.jpeg" alt="View of Bosphorus strait">
+             <div class="frame-overlay"></div>
+        </div>        
+        <!--выбор рамки-->
+                <p>Select frame</p>
+        <div class ="grids-frame-container">   
+
+            <div class ="grid-framne-item">
+            <button class="frame-btn ramka1" type="button" >Click for the frame</button>    
+            </div>
+    
+            <div class ="grid-framne-item">
+            <button class="frame-btn ramka2" type="button" >Click for the frame</button>    
+            </div>
+
+            <div class ="grid-framne-item">
+            <button class="frame-btn ramka3" type="button" >Click for the frame</button>    
+            </div>
+        </div>
+       <button class="no-frame-btn no-frame-click" style="margin-top:15px;">No Frame</button>
+
+    <br> <br>
+        <label style="color:azure;">Write your comment</label></br> 
+                <input type="text" class="commentInputStyle" placeholder="Your name" required> </br>
+                <textarea class="commentTextareaStyle" placeholder="Your comment"></textarea>
+                <button class="submitBtnStyle">Submit</button>
+    
+         <!-- комментарии -->
+        <div class="comments-section">
+              <div class="comments-list"></div>
+                <button class="show-all-btn">Показать все комментарии</button>
+        </div>
+    </div>
+
+        <!-- Фото 2 -->
+    <div class= "grid-item"> <h2 class="stylizedH2"> What about this one?</h2>
+        <p class="stylizedH2">How does this photo make you feel?</p>
+        
+        <div class="photo-wrapper">
+        <img class="post-img" src="/images/lake.jpeg" alt="View of lake">
+         <div class="frame-overlay"></div>
+        </div>
+
+         <!--выбор рамки-->
+                     <p>Select frame</p>
+        <div class ="grids-frame-container">   
+
+            <div class ="grid-framne-item">
+            <button class="frame-btn ramka1" type="button" >Click for the frame</button>    
+            </div>
+    
+            <div class ="grid-framne-item">
+            <button class="frame-btn ramka2" type="button" >Click for the frame</button>    
+            </div>
+
+            <div class ="grid-framne-item">
+            <button class="frame-btn ramka3" type="button" >Click for the frame</button>    
+            </div>
+        </div>
+        <button class="no-frame-btn no-frame-click" style="margin-top: 15px;">No Frame</button>
+           <br> <br>
+       
+           <label style="color:azure;">Write your comment</label> </br>
+        <input type="text" class="commentInputStyle" placeholder="Your name" required> </br>
+        <textarea class="commentTextareaStyle" placeholder="Your comment"></textarea>
+        <button class="submitBtnStyle">Submit</button>
+       
+        <!-- комментарии -->
+        <div class="comments-section">
+            <div class="comments-list"></div>
+                <button class="show-all-btn">Показать все комментарии</button>
+        </div>
+    </div>
+
+        <!-- Фото 3 -->
+    <div class= "grid-item"> <h2 class="stylizedH2"> Any thoughts on this one?</h2>
+    <p class="stylizedH2">How does this photo make you feel?</p>
+    
+    <div class="photo-wrapper">
+         <img class="post-img" src="/images/night view.jpeg" alt="View of lake">
+         <div class="frame-overlay"></div>
+   </div>
+        
+        
+        <!--выбор рамки--> 
+         <p>Select frame</p>
+        <div class ="grids-frame-container">   
+
+            <div class ="grid-framne-item">
+            <button class="frame-btn ramka1" type="button" >Click for the frame</button>    
+            </div>
+    
+            <div class ="grid-framne-item">
+            <button class="frame-btn ramka2" type="button" >Click for the frame</button>    
+            </div>
+
+            <div class ="grid-framne-item">
+            <button class="frame-btn ramka3" type="button" >Click for the frame</button>    
+            </div>
+        </div>
+        <button class="no-frame-btn no-frame-click" style="margin-top: 15px;">No Frame</button>
+
+    <br> <br>
+        <label style="color:azure;">Write your comment</label> </br>
+        <input type="text" class="commentInputStyle" placeholder="Your name" required> </br>
+        <textarea class="commentTextareaStyle" placeholder="Your comment"></textarea>
+        <button class="submitBtnStyle">Submit</button>
+      
+        <!-- комментарии -->
+        <div class="comments-section">
+              <div class="comments-list"></div>
+                <button class="show-all-btn">Show all comments</button>
+        </div>
+     </div>
+
+
+    </div>
+
+        <!-- Всплывающее окно-->
+    <div id="commentsModal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <h2>All Comments</h2>
+        <div id="modalCommentsList">
+            </div>
+    </div>
+</div>
+
+<%- include("partials/footer") %>
+
+
+
+
+
+
+

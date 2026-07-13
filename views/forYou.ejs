@@ -1,0 +1,74 @@
+<%- include('partials/header') %>
+
+<script type="module">
+    import { removeBackground } from "https://cdn.jsdelivr.net/npm/@imgly/background-removal@1.7.0/+esm";
+    window.imglyRemoveBackground = removeBackground;
+</script>
+
+<main class="main-content-wrapper">
+    
+    <!-- Карточка с описанием без фото (с увеличенным шрифтом) -->
+    <div class="grid-item" style="padding: 35px 25px; margin-bottom: 30px; text-align: center;">
+        <h2 class="stylizedH2" style="margin-top: 0; margin-bottom: 20px; font-size: 32px;">Create your photo</h2>
+        <p style="color: #c9d1d9; font-size: 20px; line-height: 1.7; margin: 0; max-width: 900px; margin: 0 auto;">
+            Here you can change the background of your photo to any of the suggested options below. Just upload your image, let the magic happen, and choose your favorite backdrop!
+        </p>
+    </div>
+
+    <!-- Блок загрузки фото -->
+    <div class="grid-item" style="text-align: center; margin-bottom: 30px; padding: 30px 20px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 15px;">
+        <h2 class="stylizedH2" style="margin: 0;">Upload Image</h2>
+        
+        <div class="upload-container" style="display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative;">
+            <input type="file" id="imageInput" accept="image/png, image/jpeg, image/jpg, image/webp" style="position: absolute; left: 0; top: 0; opacity: 0; width: 100%; height: 100%; cursor: pointer; z-index: -1;">
+            
+            <label for="imageInput" class="submitBtnStyle" onclick="document.getElementById('imageInput').click();" style="display: inline-block; width: auto; min-width: 180px; padding: 12px 24px; text-align: center; margin: 0 auto; font-weight: bold; background-color: #ffe066; border-radius: 6px; cursor: pointer; transition: 0.2s;">
+                Upload Photo
+            </label>
+            <p id="statusText" style="margin-top: 15px; font-weight: bold;"></p>
+        </div>
+    </div>
+
+    <!-- ОБЪЕДИНЕННЫЙ БЛОК: Заголовок и сетка в одной темной карточке -->
+    <div class="grid-item" style="padding: 30px 20px; margin-bottom: 30px;">
+        <h3 class="column-title" style="text-align: center; margin-top: 0; margin-bottom: 25px; width: 100%; border: none; font-size: 24px;">Select a background:</h3>
+        
+        <div class="grid-container" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; background-color: transparent; padding: 0;">
+            <% for(let i = 1; i <= 6; i++) { %>
+                <div class="bg-option" data-bg="bg<%= i %>" style="border: 3px solid #30363d; border-radius: 8px; overflow: hidden; cursor: pointer; transition: transform 0.2s, border-color 0.2s; background: #161B22;">
+                    <img src="/images/bg<%= i %>.jpg" alt="Background <%= i %>" class="post-img" style="width: 100%; height: 250px; object-fit: cover; display: block;">
+                </div>
+            <% } %>
+        </div>
+    </div>
+
+    <canvas id="resultCanvas" style="display: none;"></canvas>
+
+    <!-- Центрированная кнопка "Посмотреть результат" нормального размера -->
+    <div style="text-align: center; margin-bottom: 40px;">
+        <button id="showResultBtn" class="submitBtnStyle" style="display: none; width: auto; min-width: 220px; padding: 14px 28px; font-weight: bold; font-size: 16px; background-color: #ffe066; border-radius: 6px; cursor: pointer; border: none; transition: 0.2s; margin: 0 auto;">
+            View Result
+        </button>
+    </div>
+
+    <!-- УСПЕШНО НАСТРОЕННОЕ УВЕЛИЧЕННОЕ ВСПЛЫВАЮЩЕЕ ОКНО -->
+    <div id="resultModal" class="modal" style="display: none; position: fixed; z-index: 99999; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.85); align-items: center; justify-content: center;">
+        <div class="modal-content" style="background-color: #ffffff; margin: auto; padding: 30px; width: 90%; max-width: 750px; border-radius: 12px; position: relative; text-align: center; box-shadow: 0 5px 30px rgba(0,0,0,0.5); max-height: 85vh; overflow-y: auto;">
+            <span id="closeResultModal" class="close-modal" style="position: absolute; right: 20px; top: 15px; color: #666; font-size: 32px; font-weight: bold; cursor: pointer; transition: color 0.2s;">&times;</span>
+            
+            <h3 style="margin-top: 10px; margin-bottom: 25px; font-size: 26px; color: #000000; font-weight: bold; text-align: center; border: none;">Your Final Result</h3>
+            
+            <div style="margin-bottom: 25px; border-radius: 8px; display: flex; align-items: center; justify-content: center; background-color: #f5f5f5; padding: 10px; border: 1px solid #ddd;">
+                <img id="modalResultImage" src="" alt="Result" style="max-width: 100%; max-height: 50vh; height: auto; width: auto; display: block; margin: 0 auto; border-radius: 6px;">
+            </div>
+            
+            <div style="text-align: center;">
+                <a id="downloadBtn" href="#" download="my-new-photo.jpg" class="submitBtnStyle" style="display: inline-block; width: auto; min-width: 180px; padding: 12px 24px; text-decoration: none; font-weight: bold; background-color: #ffe066; color: #000; border-radius: 6px; transition: 0.2s; text-align: center;">
+                    Download Photo
+                </a>
+            </div>
+        </div>
+    </div>
+</main>
+
+<%- include('partials/footer') %>
