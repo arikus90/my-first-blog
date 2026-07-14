@@ -75,23 +75,79 @@ function initpage() {
                 .then(response => response.json())
                 .then(allComments => {
                     if (questComment) {
-                        questComment.innerHTML = "";
-                        
-                        allComments.forEach(comment => {
-                            var commentDiv = document.createElement("div");
-                            commentDiv.classList.add("comment-item");
-                            
-                            var textP = document.createElement("p");
-                            textP.innerHTML = `<span class="comment-author">${comment.name}:</span> <span class="comment-text">${comment.text}</span>`;
-                                                                                
-                            commentDiv.appendChild(textP);
-                            questComment.appendChild(commentDiv);
-                        });
+                        renderComments(questComment, allComments);
                     }
                     
                     commentInput.value = "";
                     commentTextarea.value = "";
                 });
+            });
+        }
+
+        // Вспомогательная функция для генерации комментов с кнопками Edit/Delete
+        function renderComments(container, comments) {
+            container.innerHTML = "";
+            
+            comments.forEach((comment, index) => {
+                var commentDiv = document.createElement("div");
+                commentDiv.classList.add("comment-item");
+                commentDiv.style.cssText = "display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;";
+                
+                var contentContainer = document.createElement("div");
+                contentContainer.classList.add("comment-content-box");
+                contentContainer.style.flexGrow = "1";
+                contentContainer.innerHTML = `<span class="comment-author" style="font-weight: bold; color: azure;">${comment.name}:</span> <span class="comment-text" style="color: #ccc;">${comment.text}</span>`;
+                
+                var actionsContainer = document.createElement("div");
+                actionsContainer.style.cssText = "display: flex; gap: 5px; margin-left: 10px;";
+
+                // Кнопка Edit (Редактировать)
+                var editBtn = document.createElement("button");
+                editBtn.innerText = "Edit";
+                editBtn.style.cssText = "background-color: #ffe066; color: #333; border: none; padding: 2px 6px; border-radius: 4px; cursor: pointer; font-size: 11px;";
+                editBtn.addEventListener("click", () => {
+                    const newText = prompt("Edit your comment:", comment.text);
+                    if (newText === null) return;
+                    if (newText.trim() === "") {
+                        alert("Comment cannot be empty.");
+                        return;
+                    }
+                    
+                    fetch("/edit-comment", {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({ index: index, text: newText })
+                    })
+                    .then(res => res.json())
+                    .then(updatedComments => {
+                        renderComments(container, updatedComments);
+                    });
+                });
+
+                // Кнопка Delete (Удалить)
+                var deleteBtn = document.createElement("button");
+                deleteBtn.innerText = "Delete";
+                deleteBtn.style.cssText = "background-color: #ff3333; color: white; border: none; padding: 2px 6px; border-radius: 4px; cursor: pointer; font-size: 11px;";
+                deleteBtn.addEventListener("click", () => {
+                    if (confirm("Are you sure you want to delete this comment?")) {
+                        fetch("/delete-comment", {
+                            method: "POST",
+                            headers: { "Content-Type": "application/json" },
+                            body: JSON.stringify({ index: index })
+                        })
+                        .then(res => res.json())
+                        .then(updatedComments => {
+                            renderComments(container, updatedComments);
+                        });
+                    }
+                });
+
+                actionsContainer.appendChild(editBtn);
+                actionsContainer.appendChild(deleteBtn);
+                
+                commentDiv.appendChild(contentContainer);
+                commentDiv.appendChild(actionsContainer);
+                container.appendChild(commentDiv);
             });
         }
 
@@ -122,7 +178,6 @@ function checkBirthday() {
 
     if (!bdayText || !celebrateBtn) return;
 
-    // ВЕРНУЛИ РЕАЛЬНУЮ ТЕКУЩУЮ ДАТУ
     const today = new Date(); 
     const currentYear = today.getFullYear();
     let bdayDate = new Date(currentYear, 6, 23); 
