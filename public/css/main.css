@@ -488,3 +488,9 @@
     font-size: 12px;
     color: #ffffff !important;
 }
+
+.about-profile img {
+    width: 180px; /* Увеличиваем ширину картинки */
+    height: auto; /* Высота подстроится автоматически, чтобы фото не исказилось */
+    object-fit: cover;
+}
